@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CommandTable xmlns="http://schemas.microsoft.com/VisualStudio/2005-10-18/CommandTable" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <Extern href="stdidcmd.h"/>
+  <Extern href="vsshlids.h"/>
+
+  <Commands package="GuidPackage">
+    <Menus>
+      <Menu guid="GuidCommandSet" id="MenuIDFileUtils" priority="0x0200" type="Menu">
+        <Parent guid="GuidCommandSet" id="GroupIDMain" />
+        <Strings>
+          <ButtonText>File &amp;Utilities</ButtonText>
+        </Strings>
+      </Menu>
+    </Menus>
+
+    <Groups>
+      <Group guid="GuidCommandSet" id="GroupIDMain" priority="0x0100">
+      </Group>
+      <Group guid="GuidCommandSet" id="GroupIDOrganize" priority="0x0100">
+        <Parent guid="GuidCommandSet" id="MenuIDFileUtils" />
+      </Group>
+      <Group guid="GuidCommandSet" id="GroupIDUtils" priority="0x0200">
+        <Parent guid="GuidCommandSet" id="MenuIDFileUtils" />
+      </Group>
+    </Groups>
+   
+    <Buttons>
+      <Button guid="GuidCommandSet" id="CmdIDOrganizeInProject" priority="0x0100" type="Button">
+        <Parent guid="GuidCommandSet" id="GroupIDOrganize" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <ButtonText>Organize &amp;Files in Project</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="GuidCommandSet" id="CmdIDOrganizeOnDisk" priority="0x0200" type="Button">
+        <Parent guid="GuidCommandSet" id="GroupIDOrganize" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <ButtonText>Organize Files on &amp;Disk</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="GuidCommandSet" id="CmdIDSetProjectRoot" priority="0x0300" type="Button">
+        <Parent guid="GuidCommandSet" id="GroupIDOrganize" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <ButtonText>Set &amp;Project Root...</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="GuidCommandSet" id="CmdIDRemoveEmptyFilters" priority="0x0100" type="Button">
+        <Parent guid="GuidCommandSet" id="GroupIDUtils" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <ButtonText>&amp;Remove Empty Filters</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="GuidCommandSet" id="CmdIDReAddFiles" priority="0x0200" type="Button">
+        <Parent guid="GuidCommandSet" id="GroupIDUtils" />
+        <CommandFlag>DynamicVisibility</CommandFlag>
+        <Strings>
+          <ButtonText>Re-&amp;Add Files</ButtonText>
+        </Strings>
+      </Button>
+    </Buttons>
+  </Commands>
+
+  <CommandPlacements>
+    <CommandPlacement guid="GuidCommandSet" id="GroupIDMain" priority="0x0200">
+      <Parent guid="guidSHLMainMenu" id="IDM_VS_CTXT_FOLDERNODE"/>
+    </CommandPlacement>
+    <CommandPlacement guid="GuidCommandSet" id="GroupIDMain" priority="0x0200">
+      <Parent guid="guidSHLMainMenu" id="IDM_VS_CTXT_ITEMNODE"/>
+    </CommandPlacement>
+  </CommandPlacements>
+  
+  <Symbols>
+     <GuidSymbol name="GuidPackage" value="{AD0E4393-9BAE-4B79-81A3-9E648613264C}" />
+
+    <GuidSymbol name="GuidCommandSet" value="{E35CFF27-48F1-4606-99A6-678C89456042}">
+      <IDSymbol name="GroupIDMain" value="0x1000" />
+      <IDSymbol name="MenuIDFileUtils" value="0x1010" />
+      <IDSymbol name="GroupIDOrganize" value="0x1020" />
+      <IDSymbol name="GroupIDUtils" value="0x1030" />
+
+      <IDSymbol name="CmdIDSetProjectRoot" value="0x2000" />
+      <IDSymbol name="CmdIDOrganizeInProject" value="0x2010" />
+      <IDSymbol name="CmdIDRemoveEmptyFilters" value="0x2020" />
+      <IDSymbol name="CmdIDReAddFiles" value="0x2030" />
+      <IDSymbol name="CmdIDOrganizeOnDisk" value="0x2040" />
+    </GuidSymbol>
+  </Symbols>
+</CommandTable>
